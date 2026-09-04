@@ -43,6 +43,8 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+vim.opt.guicursor = "n-v-c:block,i:block-blinkwait700-blinkoff400-blinkon250,r-cr:hor20,o:hor50"
+
 vim.diagnostic.config({
 	signs = false,
 })

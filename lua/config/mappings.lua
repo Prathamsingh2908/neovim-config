@@ -4,6 +4,16 @@ local function map(m, k, v)
 	vim.keymap.set(m, k, v, { noremap = true, silent = true })
 end
 
+-- disable arrow keys in normal mode
+map("n", "<Left>", "<Nop>")
+map("n", "<Right>", "<Nop>")
+map("n", "<Up>", "<Nop>")
+map("n", "<Down>", "<Nop>")
+
+-- escape insert mode with jj or jk
+map("i", "jj", "<Esc>")
+map("i", "jk", "<Esc>")
+
 -- set leader
 map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "

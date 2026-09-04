@@ -18,6 +18,9 @@ vim.g.start_time = vim.fn.reltime()
 vim.loader.enable() --  SPEEEEEEEEEEED 
 vim.call('plug#begin')
 
+Plug('hrsh7th/nvim-cmp')
+Plug('hrsh7th/cmp-nvim-lsp')
+Plug('hrsh7th/cmp-buffer')
 Plug('catppuccin/nvim', { ['as'] = 'catppuccin' }) --colorscheme
 Plug('ellisonleao/gruvbox.nvim', { ['as'] = 'gruvbox' }) --colorscheme 2
 Plug('uZer/pywal16.nvim', { [ 'as' ] = 'pywal16' }) --or, pywal colorscheme
@@ -30,6 +33,7 @@ Plug('nvim-treesitter/nvim-treesitter') --improved syntax
 Plug('mfussenegger/nvim-lint') --async linter
 Plug('nvim-tree/nvim-tree.lua') --file explorer
 Plug('windwp/nvim-autopairs') --autopairs 
+Plug('stevearc/conform.nvim')
 Plug('lewis6991/gitsigns.nvim') --git
 Plug('numToStr/Comment.nvim') --easier comments
 Plug('norcalli/nvim-colorizer.lua') --color highlight
@@ -39,6 +43,10 @@ Plug('ron-rs/ron.vim') --ron syntax highlighting
 Plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
 Plug('emmanueltouzery/decisive.nvim') --view csv files
 Plug('folke/twilight.nvim') --surrounding dim
+Plug('nvim-lua/plenary.nvim')
+Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2' })
+Plug('neovim/nvim-lspconfig')
+Plug('mason-org/mason.nvim')
 
 vim.call('plug#end')
 
@@ -50,6 +58,7 @@ require("config.autocmd")
 
 require("plugins.alpha")
 -- require("plugins.autopairs")
+require("plugins.harpoon")
 require("plugins.barbar")
 require("plugins.colorizer")
 require("plugins.colorscheme")
@@ -64,12 +73,15 @@ require("plugins.render-markdown")
 -- require("plugins.treesitter")
 -- require("plugins.twilight")
 -- require("plugins.which-key")
+require("plugins.lsp")
+require("plugins.cmp")
 
 vim.defer_fn(function() 
 		--defer non-essential configs,
 		--purely for experimental purposes:
 		--this only makes a difference of +-10ms on initial startup
 require("plugins.autopairs")
+require("plugins.conform")
 require("plugins.fterm")
 require("plugins.fzf-lua")
 require("plugins.nvim-tree")
