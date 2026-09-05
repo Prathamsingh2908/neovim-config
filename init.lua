@@ -2,7 +2,9 @@
 -- keymaps are in lua/config/mappings.lua
 -- install a patched font & ensure your terminal supports glyphs
 -- enjoy :D
-
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
 -- auto install vim-plug and plugins, if not found
 local data_dir = vim.fn.stdpath('data')
 if vim.fn.empty(vim.fn.glob(data_dir .. '/site/autoload/plug.vim')) == 1 then
@@ -47,6 +49,7 @@ Plug('nvim-lua/plenary.nvim')
 Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2' })
 Plug('neovim/nvim-lspconfig')
 Plug('mason-org/mason.nvim')
+Plug('christoomey/vim-tmux-navigator')
 
 vim.call('plug#end')
 
